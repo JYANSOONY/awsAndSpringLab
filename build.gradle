@@ -1,0 +1,46 @@
+/**플러그인 의존선 관리*/
+buildscript {
+//    build.gradle에서 사용하는 전역변수를 설정
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    }
+//    각종 의존성들을 어떤 원격 저장소에서 받을지
+    repositories{
+        mavenCentral()
+        jcenter()
+    }
+//    개발에 필요한 의존성 추가
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin : 'java'
+apply plugin : 'eclipse'
+apply plugin : 'org.springframework.boot'
+apply plugin : 'io.spring.dependency-management'
+
+//plugins {
+//    id 'java'
+//}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+//sourceCompatibility(1.8)
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileClasspath('org.springframework.boot:spring-boot-starter-web')
+    testCompileClasspath('org.springframework.boot:spring-boot-starter-test')
+//    compille('org.springframework.boot:spring-boot-starter-web')
+//    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
