@@ -42,6 +42,7 @@ public class HelloControllerTest {
                         .param("name", name)
                         .param("amount", String.valueOf(amount)))
                 .andExpect(status().isOk())
+//                json 응답값을 필드별로 확인할 수 있음
                 .andExpect(jsonPath("$.name", is(name)))
                 .andExpect(jsonPath("$.amount", is(amount)));
     }
