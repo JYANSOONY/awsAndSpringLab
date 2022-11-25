@@ -40,7 +40,7 @@ public class PostRepositoryTest {
                .author("jyansoony@gmail.com")
                .build());
 
-       //테이블 posts에 있는 모든 데이터르 ㄹ조회해오는 메소드
+       //테이블 posts에 있는 모든 데이터를 조회해오는 메소드
        //when
        List<Posts> postsList = postsRepository.findAll();
 
