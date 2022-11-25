@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Getter
+//기본 생성자 자동 추가 public Posts(){}와 같은 효과 
 @NoArgsConstructor
 //테이블과 링크될 클래스임을 나타냄
 @Entity
@@ -26,6 +27,7 @@ public class Posts {
 
     private String author;
 
+    //해당 클래스의 빌더 패턴 클래스 생성 , 생성자 상단에 선언시 생성자에 포함된 필드만 빌더에 포함
     @Builder
     public Posts(String title, String content, String author){
         this.title = title;
