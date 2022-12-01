@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+//@RequiredArgsConstructor : filnal 이 선언된 모든필드를 인자값으로 하는 생성자를 생성
 @RequiredArgsConstructor
 @Service
 public class PostService {
