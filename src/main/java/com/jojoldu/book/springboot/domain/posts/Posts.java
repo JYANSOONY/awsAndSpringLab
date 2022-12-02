@@ -10,15 +10,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+//@NoArgsConstructor:기본 생성자 자동 추가 public Posts(){}와 같은 효과
+//@Entity:테이블과 링크될 클래스임을 나타냄
 @Getter
-//기본 생성자 자동 추가 public Posts(){}와 같은 효과 
 @NoArgsConstructor
-//테이블과 링크될 클래스임을 나타냄
 @Entity
 public class Posts {
-    //해당 테이블의 pk
+    //@Id:해당 테이블의 pk
+    //@GeneratedValue:pk의 생성 규칙을 나타냄
     @Id
-    //pk의 생성 규칙을 나타냄
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
