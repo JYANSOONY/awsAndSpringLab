@@ -1,9 +1,9 @@
-package com.jojoldu.book.springboot.web.dto;
+package com.jojoldu.book.springboot.web;
 
 import com.jojoldu.book.springboot.domain.posts.Posts;
 import com.jojoldu.book.springboot.domain.posts.PostsRepository;
 import com.jojoldu.book.springboot.web.dto.PostsSaveRequestDto;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 //WEBMVCTEST 경우 JPA적용이 작동하지 않기 때문에 스프링부트테스트 사용
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PostApiControllerTest {
 
     @LocalServerPort
@@ -32,7 +32,7 @@ public class PostApiControllerTest {
     @Autowired
     private PostsRepository postsRepository;
 
-    @After
+    @AfterEach
     public void tearDown() throws Exception{
         postsRepository.deleteAll();
     }
@@ -48,7 +48,7 @@ public class PostApiControllerTest {
                 .author("author")
                 .build();
 
-        String url = "http://localhost:"+port+"api/v1"+"posts";
+        String url = "http://localhost:"+port+"/api/v1/posts";
 
         //when
         ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
